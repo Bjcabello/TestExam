@@ -1,0 +1,24 @@
+{% extends "../layout.html" %}
+
+{% block content %}
+<h1>Resultados del Cuestionario</h1>
+    
+<h2>Resumen:</h2>
+<p>Aciertos: {{ aciertos }}</p>
+<p>Desaciertos: {{ desaciertos }}</p>
+
+<h2>Detalles:</h2>
+<ul>
+    {% for resultado in resultados %}
+    <li>
+        {{ resultado.pregunta.texto }} -
+        {{ resultado.opcion_seleccionada.texto }} -
+        {% if resultado.es_correcta %}
+            Correcto
+        {% else %}
+            Incorrecto
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
